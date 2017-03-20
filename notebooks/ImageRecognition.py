@@ -8,10 +8,8 @@ import bs4
 import requests
 import os
 from scipy.misc import imresize
-from sklearn.model_selection import cross_val_score
 import pickle
 from sklearn.ensemble import RandomForestClassifier
-from importlib import reload
 from scipy.misc import imread, imsave, imresize
 import numpy as np
 
@@ -112,8 +110,6 @@ print(images.shape)
 # In[10]:
 
 X, y = [i.flatten() for i in images], labels
-scores = cross_val_score(RandomForestClassifier(n_jobs=-1), X, y, cv=3)
-print(scores)
 
 
 # In[11]:

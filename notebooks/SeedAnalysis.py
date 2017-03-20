@@ -7,7 +7,6 @@ import pandas as pd
 import pickle
 
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import GridSearchCV, cross_val_score
 
 
 # In[18]:
@@ -41,12 +40,6 @@ grid = dict(max_depth=[2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, None],
 # In[45]:
 
 rf = RandomForestClassifier(n_jobs=-1, n_estimators=100, max_depth=6, max_features=7)
-scores = cross_val_score(rf, X, y, cv=7)
-
-
-# In[47]:
-
-print(scores.mean())
 
 
 # In[48]:
