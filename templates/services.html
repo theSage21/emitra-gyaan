@@ -57,6 +57,13 @@
                 </div>
                 <hr>
                 <div class='row'>
+                    <h4 class='shaded-text'>Does this image contain Rice or Wheat?</h4>
+                    <form action="/image-seeds" method="post" enctype="multipart/form-data">
+                          Image ID: <input type="text" name="id" />
+                          Select a file: <input type="file" name="upload" />
+                          <input type="submit" value="Upload" />
+                    </form>
+                    <hr>
                     <h4>Wheat Seed classification</h4>
                     We provide a wheat seed identification service as a demo.
                     <form action='/seed-classification' method='post'>
