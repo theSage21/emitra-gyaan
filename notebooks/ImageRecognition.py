@@ -8,8 +8,6 @@ import bs4
 import requests
 import os
 from scipy.misc import imresize
-from bleedml.classifiers import CascadeForest
-from bleedml.utils import multi2Dscan, scan2D
 from sklearn.model_selection import cross_val_score
 import pickle
 from sklearn.ensemble import RandomForestClassifier
