@@ -1,0 +1,10 @@
+html { 
+    font-size:80%;
+      background: url(/static/images/rajasthan.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+      -moz-background-size: cover;
+        -o-background-size: cover;
+          background-size: cover;
+          }
+
+a {color: white}
