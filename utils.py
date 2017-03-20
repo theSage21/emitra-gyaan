@@ -8,8 +8,8 @@ try:
     import seaborn as sns
     use_pre_plotted = False
 except ImportError:
-    string_amounts = imread('amounts.png')
-    string_usage = imread('usage.png')
+    string_amounts = base64.b64encode(imread('amounts.png'))
+    string_usage = base64.b64encode(imread('usage.png'))
     use_pre_plotted = True
 import matplotlib.pyplot as plt
 
