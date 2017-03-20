@@ -16,6 +16,11 @@ def home():
     html = render('home.html')
     return html
 
+@app.get('/about')
+def about():
+    html = render('about.html')
+    return html
+
 @app.get('/analytics')
 def analytics():
     data = dict(amounts=get_amounts_string(),
@@ -54,6 +59,15 @@ def seed_classification():
     html = render('seed.html', data)
     return html
 
+@app.post('/image-seeds')
+def image_seeds():
+    # Get the image
+    # get prediction
+    data = dict(seed_label=pred,
+            confidence=proba)
+
+    html = render('imageseed.html', data)
+    return html
 ###############################
 @app.get('/static/<path:path>')
 def callback(path):

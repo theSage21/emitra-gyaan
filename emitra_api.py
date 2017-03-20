@@ -42,4 +42,5 @@ def get_response(ssoid, srvid, searchKey):
     new_dict['FetchDetails']['TransactionDetails']['BillAmount'] = str(random.random() * 1000)
     return new_dict
 
-get_response(1234, 1234, 9899155975)
+if __name__ == '__main__':
+    get_response(1234, 1234, 9899155975)
