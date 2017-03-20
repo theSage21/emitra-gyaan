@@ -14,7 +14,8 @@ from sklearn.model_selection import cross_val_score
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 from importlib import reload
-get_ipython().magic('pylab inline')
+from scipy.misc import imread, imsave, imresize
+import numpy as np
 
 
 # In[2]:
@@ -43,8 +44,6 @@ if not os.path.exists('wheatlinks'):
     links = list(set(links))
     with open('wheatlinks', 'w') as fl:
         fl.write('\n'.join(links))
-    get_ipython().system(' mkdir ../images/wheat/')
-    get_ipython().system(' cd ../images/wheat/ && wget -i ../../notebooks/wheatlinks')
 
 
 # In[4]:
@@ -55,8 +54,6 @@ if not os.path.exists('ricelinks'):
     with open('ricelinks', 'w') as fl:
         fl.write('\n'.join(links))
 
-    get_ipython().system(' mkdir ../images/rice/')
-    get_ipython().system(' cd ../images/rice/ && wget -i ../../notebooks/ricelinks')
 
 
 # ### Creating training dataset
