@@ -3,7 +3,13 @@ import pickle
 import base64
 import random
 import pandas as pd
-import seaborn as sns
+try:
+    import seaborn as sns
+    use_pre_plotted = False
+except ImportError:
+    string_amounts = imread('amounts.png')
+    string_usage = imread('usage.png')
+    use_pre_plotted = True
 import matplotlib.pyplot as plt
 from scipy.misc import imresize
 
@@ -14,6 +20,8 @@ with open('image_classifier.pickle', 'rb') as fl:
     image_classifier = pickle.load(fl)
 
 def get_amounts_string():
+    if use_pre_plotted:
+        return string_amounts
     #########Plotting amounts
     order = [(v, k) for k, v in dict(agg.groupby('hq')['BillAmount'].mean()).items()]
     order.sort(key=lambda x: x[0], reverse=True)
@@ -34,6 +42,8 @@ def get_amounts_string():
     return string_amounts
 
 def get_usage_string():
+    if use_pre_plotted:
+        return string_usage
     ###########Plotting usages:
     order = [(v, k) for k, v in dict(agg.groupby('hq')['instance'].count()).items()]
     order.sort(key=lambda x: x[0], reverse=True)

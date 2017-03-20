@@ -1,4 +1,5 @@
 import math
+import os
 from scipy.misc import imread
 from bottle import Bottle, route, get, post, run, template, static_file, request
 from utils import get_amounts_string, get_usage_string, get_prediction, get_image_classification
