@@ -21,6 +21,11 @@ def about():
     html = render('about.html')
     return html
 
+@app.get('/contact')
+def contact():
+    html = render('contact.html')
+    return html
+
 @app.get('/analytics')
 def analytics():
     data = dict(amounts=get_amounts_string(),
