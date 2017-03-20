@@ -21,6 +21,7 @@ with open('image_classifier.pickle', 'rb') as fl:
 
 def get_amounts_string():
     if use_pre_plotted:
+        global string_amounts
         return string_amounts
     #########Plotting amounts
     order = [(v, k) for k, v in dict(agg.groupby('hq')['BillAmount'].mean()).items()]
@@ -43,6 +44,7 @@ def get_amounts_string():
 
 def get_usage_string():
     if use_pre_plotted:
+        global string_usage
         return string_usage
     ###########Plotting usages:
     order = [(v, k) for k, v in dict(agg.groupby('hq')['instance'].count()).items()]

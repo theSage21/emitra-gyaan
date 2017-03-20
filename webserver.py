@@ -30,8 +30,7 @@ def contact():
 
 @app.get('/analytics')
 def analytics():
-    data = dict(amounts=get_amounts_string(),
-            usage=get_usage_string())
+    data = dict()
     html = render('analytics.html', data)
     return html
 
