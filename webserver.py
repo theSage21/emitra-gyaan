@@ -76,6 +76,7 @@ def image_seeds():
     pred, proba = get_image_classification(image)
     data = dict(seed_label=pred,
             confidence=proba)
+    os.remove(img_src.filename)
 
     html = render('imageseed.html', data)
     return html
