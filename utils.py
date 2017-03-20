@@ -11,7 +11,7 @@ except ImportError:
     string_usage = imread('usage.png')
     use_pre_plotted = True
 import matplotlib.pyplot as plt
-from scipy.misc import imresize
+from scipy.misc import imresize, imread
 
 
 agg = pd.read_csv('emitrausedata.csv')
