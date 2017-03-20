@@ -120,7 +120,7 @@ est.fit(X, y)
 
 # In[12]:
 
-with open('../image_classifier.pickle', 'w') as fl:
+with open('../image_classifier.pickle', 'wb') as fl:
     s = pickle.dumps(est)
     fl.write(s)
 

@@ -49,6 +49,6 @@ rf.fit(X, y)
 
 # In[50]:
 
-with open('../seedclassifier.pickle', 'w') as fl:
+with open('../seedclassifier.pickle', 'wb') as fl:
     fl.write(pickle.dumps(rf))
 

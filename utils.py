@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 agg = pd.read_csv('emitrausedata.csv')
 agg['instance'] = 1
-with open('image_classifier.pickle', 'r') as fl:
+with open('image_classifier.pickle', 'rb') as fl:
     image_classifier = pickle.loads(fl.read())
 
 def get_amounts_string():
@@ -68,7 +68,7 @@ def get_usage_string():
 
 def get_prediction(feature):
     X = [feature]
-    with open('seedclassifier.pickle', 'r') as fl:
+    with open('seedclassifier.pickle', 'rb') as fl:
         est = pickle.loads(fl.read())
     p = est.predict_proba(X)
     classes = ['Kama', 'Rosa', 'Canadian']
