@@ -1,10 +1,6 @@
-from bottle import Bottle, route, get, post, run, template, static_file
-import io
-import base64
-import random
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import math
+from bottle import Bottle, route, get, post, run, template, static_file, request
+from utils import get_amounts_string, get_usage_string, get_prediction
 
 def render(name, data={}):
     with open('templates/'+name) as fl:
@@ -13,60 +9,43 @@ def render(name, data={}):
     return text
 
 app = Bottle()
-agg = pd.read_csv('emitrausedata.csv')
-agg['instance'] = 1
+###############################   GET
 
-#########Plotting amounts
-order = [(v, k) for k, v in dict(agg.groupby('hq')['BillAmount'].mean()).items()]
-order.sort(key=lambda x: x[0], reverse=True)
-order = [i[1] for i in order]
-order[:10]
-
-plt.figure(figsize=(10, 7))
-sns.barplot(x='BillAmount', y='hq', data=agg, order=order)
-plt.title('Average Bill amounts in Rajasthan Districts')
-plt.xlabel('Average Bill Amount in Rs')
-plt.ylabel('Districts')
-
-buf = io.BytesIO()
-plt.savefig(buf, format='png')
-buf.seek(0)
-string_amounts = base64.b64encode(buf.getvalue())
-plt.close()
-
-###########Plotting usages
-order = [(v, k) for k, v in dict(agg.groupby('hq')['instance'].count()).items()]
-order.sort(key=lambda x: x[0], reverse=True)
-order = [i[1] for i in order]
-order[:10]
-
-plt.figure(figsize=(10, 7))
-sns.countplot(agg.hq, order=order)
-ax = plt.gca()
-ax.set_xticklabels(ax.xaxis.get_majorticklabels(), rotation=90)
-plt.xlabel('District')
-plt.ylabel('Usage count')
-plt.title('e-Mitra Usage in the districts of Rajasthan')
-
-buf = io.BytesIO()
-plt.savefig(buf, format='png')
-buf.seek(0)
-string_usage = base64.b64encode(buf.getvalue())
-plt.close()
-###############################
-
-@app.route('/')
+@app.get('/')
 def home():
     html = render('home.html')
     return html
 
 @app.get('/analytics')
 def analytics():
-    data = dict(amounts=string_amounts,
-            usage=string_usage)
+    data = dict(amounts=get_amounts_string(),
+            usage=get_usage_string())
     html = render('analytics.html', data)
     return html
 
+@app.get('/services')
+def services():
+    data = dict()
+    html = render('services.html', data)
+    return html
+
+
+###############################  POST
+
+
+@app.post('/seed-classification')
+def seed_classification():
+    names = 'area,perimeter,kernel_length,kernel_width,asymmetry_coef,length_of_groove'.split(',')
+    area, perimeter, kl, kw, ac, gl = [float(request.POST[i]) for i in names]
+    compact = 4 * math.pi * area / (perimeter ** 2)
+    feature = [area,perimeter,compact,kl,kw,ac,gl]
+    pred, proba = get_prediction(feature)
+
+    data = dict(seed_label=pred,
+            confidence=proba)
+
+    html = render('seed.html', data)
+    return html
 ###############################
 @app.get('/static/<path:path>')
 def callback(path):

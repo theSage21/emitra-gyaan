@@ -1,0 +1,63 @@
+<html>
+	<head>
+
+	  <!-- Basic Page Needs
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <meta charset="utf-8">
+	  <title>eMitra-Gyaan</title>
+	  <meta name="description" content="e mitra gyaan">
+	  <meta name="author" content="Arjoonn Sharma">
+      <link rel="icon" href="/static/images/favicon.png" type="image/x-icon"/>
+
+
+	  <!-- Mobile Specific Metas
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	  <!-- FONT
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+	  <!-- CSS
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <link rel="stylesheet" href="static/css/normalize.css">
+	  <link rel="stylesheet" href="static/css/skeleton.css">
+	  <link rel="stylesheet" href="static/css/home.css">
+
+	  <!-- Scripts
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+    <body>
+        <div class='container'>
+            <div class='row'>
+                <div class='twelve columns'>
+                    <b>e-Mitra ज्ञान</b>  - - [
+                    <a href='/'>Home</a> ] - [
+                    <a href='/about'>About</a> ] - [ 
+                    <a href='/services'>Services</a> ] - [ 
+                    <a href='/jobs'>Job Opportunities</a> ] - [ 
+                    <a href='/analytics'>eMitra Analytics</a> ] - [ 
+                    <a href='/contact'>Contact</a> ] 
+                </div>
+            </div>
+            <hr>
+            <div class='container'>
+                <h4>Seed classification</h4>
+                <div class='row'>
+                    <form action='/seed-classification' method='post'>
+                        <tbody>
+                            <tr><td><label>Area of seed in cm^2</label></td><td><input type="text" name="area"></input></td></tr>
+                            <tr><td><label>Perimeter of seed in cm</label></td><td><input type="text" name="perimeter"></input></td></tr>
+                            <tr><td><label>Seed length in cm</label></td><td><input type="text" name="kernel_length"></input></td></tr>
+                            <tr><td><label>Seed width</label></td><td><input type="text" name="kernel_width"></input></td></tr>
+                            <tr><td><label>Asymmetry Coefficient</label></td><td><input type="text" name="asymmetry_coef"></input></td></tr>
+                            <tr><td><label>Length of groove in seed</label></td><td><input type="text" name="length_of_groove"></input></td></tr>
+                            <tr><td><input type='submit' value='Submit'></input></td></tr>
+                        </tbody>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
