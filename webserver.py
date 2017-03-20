@@ -29,6 +29,12 @@ def services():
     html = render('services.html', data)
     return html
 
+@app.get('/jobs')
+def jobs():
+    data = dict()
+    html = render('jobs.html', data)
+    return html
+
 
 ###############################  POST
 
