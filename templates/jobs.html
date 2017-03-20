@@ -47,7 +47,13 @@
                     <p>e-Mitra ज्ञान provides job opportunities to people who can perform skilled tasks to train the artificial intelligence needed for the services provided by e-Mitra ज्ञान </p>
                     <p>For example one of our tasks is to correctly identify crop from images. To try this job out you can fill out the form below</p>
                 </div>
-                <h1>TODO Image classification task</h1>
+                <hr>
+                <h4 class='shaded-text'>Does this image contain Rice or Wheat?</h4>
+                <form action="/image-seeds" method="post" enctype="multipart/form-data">
+                      Image ID: <input type="text" name="id" />
+                      Select a file: <input type="file" name="upload" />
+                      <input type="submit" value="Upload" />
+                </form>
             </div>
         </div>
     </body>

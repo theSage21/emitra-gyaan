@@ -1,6 +1,7 @@
 import math
+from scipy.misc import imread
 from bottle import Bottle, route, get, post, run, template, static_file, request
-from utils import get_amounts_string, get_usage_string, get_prediction
+from utils import get_amounts_string, get_usage_string, get_prediction, get_image_classification
 
 def render(name, data={}):
     with open('templates/'+name) as fl:
@@ -67,7 +68,12 @@ def seed_classification():
 @app.post('/image-seeds')
 def image_seeds():
     # Get the image
+    img_id = request.forms.get('id')
+    img_src = request.files.get('upload')
+    img_src.save(img_src.filename)
+    image = imread(img_src.filename)
     # get prediction
+    pred, proba = get_image_classification(image)
     data = dict(seed_label=pred,
             confidence=proba)
 

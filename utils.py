@@ -5,10 +5,13 @@ import random
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from scipy.misc import imresize
 
 
 agg = pd.read_csv('emitrausedata.csv')
 agg['instance'] = 1
+with open('image_classifier.pickle', 'rb') as fl:
+    image_classifier = pickle.load(fl)
 
 def get_amounts_string():
     #########Plotting amounts
@@ -70,3 +73,16 @@ def get_prediction(feature):
             return 'Rosa', b
         elif b <= c:
             return 'Canadian', c
+
+def get_image_classification(image):
+    shape = (50, 72)
+    image = imresize(image, shape)
+    x = [image.flatten()]
+    probas = image_classifier.predict_proba(x)
+    a, b = probas[0]
+    if a > b:
+        return 'rice', a
+    elif a < b:
+        return 'wheat', b
+    else:
+        return ['rice', 'wheat'], [a, b]
