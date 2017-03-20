@@ -7,4 +7,9 @@ html {
           background-size: cover;
           }
 
-a {color: white}
+a {color: white;}
+
+.shaded-text {
+background-color: rgba(0,0,0,0.5);
+padding: 10px; 
+color: white;}

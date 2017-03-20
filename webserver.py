@@ -35,6 +35,7 @@ def services():
 
 @app.post('/seed-classification')
 def seed_classification():
+    # Get the data and prediction from model
     names = 'area,perimeter,kernel_length,kernel_width,asymmetry_coef,length_of_groove'.split(',')
     area, perimeter, kl, kw, ac, gl = [float(request.POST[i]) for i in names]
     compact = 4 * math.pi * area / (perimeter ** 2)
@@ -46,6 +47,7 @@ def seed_classification():
 
     html = render('seed.html', data)
     return html
+
 ###############################
 @app.get('/static/<path:path>')
 def callback(path):
