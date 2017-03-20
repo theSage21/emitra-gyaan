@@ -3,6 +3,7 @@ import pickle
 import base64
 import random
 import pandas as pd
+from scipy.misc import imresize, imread
 try:
     import seaborn as sns
     use_pre_plotted = False
@@ -11,7 +12,6 @@ except ImportError:
     string_usage = imread('usage.png')
     use_pre_plotted = True
 import matplotlib.pyplot as plt
-from scipy.misc import imresize, imread
 
 
 agg = pd.read_csv('emitrausedata.csv')
