@@ -42,7 +42,7 @@ def services():
 
 @app.get('/jobs')
 def jobs():
-    data = dict()
+    data =dict()
     html = render('jobs.html', data)
     return html
 
