@@ -4,7 +4,6 @@
 # In[1]:
 
 import pandas as pd
-import seaborn as sns
 import bs4
 import requests
 import os

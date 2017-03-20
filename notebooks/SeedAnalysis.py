@@ -4,7 +4,6 @@
 # In[39]:
 
 import pandas as pd
-import seaborn as sns
 import pickle
 
 from sklearn.ensemble import RandomForestClassifier
