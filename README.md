@@ -59,5 +59,3 @@ Explaining the Folders in code tree
 - notebooks: Analysis notebooks
 - static: static files
 - templates: templates for pages
-
-
