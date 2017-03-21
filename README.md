@@ -29,6 +29,19 @@ Visit <https://arjoonn.pythonanywhere.com> for a live demo.
 
 The code is available at <https://github.com/theSage21/emitra-gyaan>
 
+Impacts
+-------
+
+The expertise of an expert is only available to a small group of people. By
+mapping their expertise to an AI system we can provide those expertise to a
+wider range of people. This will help Rajasthan to grow well.
+
+This system also provides employment opportunities which do not require skill
+and knowledge in some cases.
+
+With the help of this system, people across the state can optimize their daily
+workflows and activities to increase productivity across the state.
+
 
 Walkthrough of website
 ------------
@@ -50,6 +63,10 @@ Walkthrough of website
 6. [Contact](http://arjoonn.pythonanywhere.com/analytics)
     - Contact page
 
+Demo Video
+----------
+
+<https://youtu.be/sGF_uNQ1pxw>
 
 Explaining the Folders in code tree
 ----------------------
@@ -60,7 +77,3 @@ Explaining the Folders in code tree
 - static: static files
 - templates: templates for pages
 
-Demo Video
-----------
-
-<https://youtu.be/sGF_uNQ1pxw>
