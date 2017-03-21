@@ -59,3 +59,8 @@ Explaining the Folders in code tree
 - notebooks: Analysis notebooks
 - static: static files
 - templates: templates for pages
+
+Demo Video
+----------
+
+<https://youtu.be/sGF_uNQ1pxw>
