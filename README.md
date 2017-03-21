@@ -29,6 +29,13 @@ Visit <https://arjoonn.pythonanywhere.com> for a live demo.
 
 The code is available at <https://github.com/theSage21/emitra-gyaan>
 
+Predictions
+-----------
+
+As an example images uploaded to the site can be classified into `rice` or `wheat` categories.
+
+![Classification Result](classification.png)
+
 Impacts
 -------
 
