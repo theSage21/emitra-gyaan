@@ -75,8 +75,10 @@ def image_seeds():
     # get prediction
     pred, proba = get_image_classification(image)
     data = dict(seed_label=pred,
-            confidence=proba)
-    os.remove(img_src.filename)
+            confidence=proba
+            )
+    command = 'mv {} static/images/tempfile'.format(img_src.filename)
+    os.system(command)
 
     html = render('imageseed.html', data)
     return html
